@@ -1,0 +1,88 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="tool_cantam.MetadataPage"
+    Background="#1e1e1e">
+
+    <Grid>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+            <StackPanel VerticalAlignment="Top">
+
+                <!-- BAŞLIK -->
+                <TextBlock Text="METADATA CLEANER"
+                           Foreground="#00FF9C"
+                           FontSize="28"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,20"/>
+
+                <!-- DROP AREA -->
+                <Border x:Name="DropArea"
+                        CornerRadius="20"
+                        Background="#2a2a2a"
+                        Padding="30"
+                        Margin="20"
+                        AllowDrop="True"
+                        Drop="DropArea_Drop"
+                        MouseLeftButtonDown="DropArea_MouseLeftButtonDown">
+
+                    <StackPanel HorizontalAlignment="Center">
+
+                        <TextBlock x:Name="TxtStatus"
+                                   Text="DOSYA SÜRÜKLE YA DA TIKLA"
+                                   Foreground="#00FF9C"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"/>
+
+                        <TextBlock x:Name="TxtFileName"
+                                   Text="Henüz dosya seçilmedi"
+                                   Foreground="Gray"
+                                   Margin="0,10,0,0"
+                                   HorizontalAlignment="Center"/>
+
+                    </StackPanel>
+                </Border>
+
+                <!-- METADATA -->
+                <Border Background="#2a2a2a"
+                        CornerRadius="15"
+                        Margin="20"
+                        Padding="15">
+
+                    <ScrollViewer MaxHeight="150">
+                        <TextBlock x:Name="TxtMetadata"
+                                   Foreground="White"
+                                   Text="Metadata burada görünecek..."
+                                   TextWrapping="Wrap"/>
+                    </ScrollViewer>
+
+                </Border>
+
+                <!-- BUTON -->
+                <Button x:Name="BtnClean"
+                        Content="METADATA TEMİZLE"
+                        Height="45"
+                        Margin="20"
+                        Background="#00FF9C"
+                        Foreground="Black"
+                        FontWeight="Bold"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        Click="BtnClean_Click"/>
+
+                <!-- PROGRESS -->
+                <ProgressBar x:Name="ProgressClean"
+                             Height="10"
+                             Margin="20"
+                             IsIndeterminate="True"
+                             Visibility="Collapsed"/>
+
+            </StackPanel>
+
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>

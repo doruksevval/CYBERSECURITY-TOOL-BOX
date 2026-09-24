@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="tool_cantam.PortScannerPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Transparent">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="30">
+            <StackPanel>
+                <TextBlock Text="AG TARAYICI" Foreground="#00FF9C" FontSize="26" FontWeight="Bold" Margin="0,0,0,30"/>
+
+                <UniformGrid Columns="2" Margin="0,0,0,20">
+                    <StackPanel Margin="0,0,10,0">
+                        <TextBlock Text="HEDEF IP" Foreground="#666" FontSize="11" Margin="0,0,0,5"/>
+                        <TextBox x:Name="TxtIP" Text="127.0.0.1" Background="#0D0D12" Foreground="White" BorderBrush="#1F1F24" Padding="10"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,0,0,0">
+                        <TextBlock Text="PORT ARALIGI" Foreground="#666" FontSize="11" Margin="0,0,0,5"/>
+                        <TextBox x:Name="TxtPortRange" Text="1-100" Background="#0D0D12" Foreground="White" BorderBrush="#1F1F24" Padding="10"/>
+                    </StackPanel>
+                </UniformGrid>
+
+                <TextBlock Text="TARAMA HIZI (ZAMAN ASIMI - MS)" Foreground="#666" FontSize="11" Margin="0,0,0,5"/>
+                <DockPanel Margin="0,0,0,15">
+                    <TextBlock Text="{Binding ElementName=SldTimeout, Path=Value}" DockPanel.Dock="Right" Foreground="#00FF9C" FontWeight="Bold" Margin="10,0,0,0" Width="30"/>
+                    <Slider x:Name="SldTimeout" Minimum="50" Maximum="1000" Value="200" IsSnapToTickEnabled="True" TickFrequency="50"/>
+                </DockPanel>
+
+                <Button x:Name="BtnScan" Click="BtnScan_Click" Content="TARAMA BASLAT" Height="40" Background="#00FF9C" Foreground="Black" FontWeight="Bold" Margin="0,0,0,10">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <ProgressBar x:Name="ScanProgress" Value="0" Height="4" Background="#0D0D12" Foreground="#00FF9C" BorderThickness="0" Margin="0,0,0,10"/>
+
+                <Border Background="#050505" CornerRadius="10" BorderBrush="#1F1F24" BorderThickness="1" Height="250">
+                    <ListBox x:Name="LstPorts" Background="Transparent" BorderThickness="0" Foreground="#00FF9C" Padding="10">
+                    </ListBox>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</UserControl>
